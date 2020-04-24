@@ -1,38 +1,197 @@
-.App {
+html,
+body,
+* {
+  box-sizing: border-box;
+}
+
+ul,
+li,
+p,
+h1,
+h2,
+h3,
+h4,
+h5 {
+  padding: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.container {
+  width: 100%;
+}
+
+:root {
+  --bg-purple: #582a72;
+  --pink-gradient: linear-gradient(to right, #9775aa, #882d61);
+  --purple-gradient: linear-gradient(to right, #582a72bb, #882d61bd);
+  --text-white: #fafafa;
+  --raleway: 'Raleway', sans-serif;
+}
+
+/* Custom checkbox styles */
+
+.checkbox-container {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-custom {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 1.2rem;
+  width: 1.2rem;
+  background-color: transparent;
+  border-radius: 5px;
+  border: 2px solid #fafafa;
+}
+
+.checkbox-custom:hover {
+  background-color: #ccc;
+}
+
+.checkbox-container input:checked ~ .checkbox-custom {
+  background-color: #fafafa;
+}
+
+.checkbox-custom:after {
+  content: '';
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked ~ .checkbox-custom:after {
+  display: block;
+}
+
+.container .checkbox-custom:after {
+  left: 0.25rem;
+  top: 0.1rem;
+  width: 0.25rem;
+  height: 0.5rem;
+  border: solid var(--bg-purple);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+
+.label {
+  margin-left: 2rem;
+}
+
+/* Helper classes */
+.text-center {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.d-flex {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.row {
+  display: grid;
+  grid-template-columns: 35% 65%;
+}
+.col {
+  padding: 1rem 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.menu {
+  background: var(--purple-gradient),
+    url('./img/brandon-griggs-wR11KBaB86U-unsplash.jpg') no-repeat center
+      center/cover,
+    var(--bg-purple);
+
+  color: var(--text-white);
+  height: 100vh;
+}
+
+.content {
+  background: #dddddd;
+  overflow: scroll;
+  height: 100vh;
+  font-family: var(--raleway);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.form-category {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.form-group {
+  padding: 0.5rem;
+}
+
+.btn {
+  border: none;
+  background-color: #111111;
+  color: var(--text-white);
+  margin: 1rem 0;
+  padding: 1rem 0.5rem;
+  width: 30%;
+  border-radius: 10px;
+}
+
+.unit-list {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.unit-item {
+  background-color: #fafafa;
+  padding: 1rem;
+  border-radius: 10px;
+  margin: 0.5rem;
+}
+
+.unit-item img {
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  .row {
+    display: flex;
+    flex-direction: column;
   }
-  to {
-    transform: rotate(360deg);
+
+  .menu {
+    height: 35vh;
+    width: 100vw;
+    position: fixed;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content {
+    margin-top: 35vh;
+    height: 65vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .unit-list {
+    grid-template-columns: 100%;
   }
 }

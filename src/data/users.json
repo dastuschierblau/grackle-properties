@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Toby Slack",
+    "email": "toby@gmail.com",
+    "role": "admin",
+    "password": "123456"
+  },
+  {
+    "name": "Apples Slack",
+    "email": "apples@gmail.com",
+    "role": "manager",
+    "password": 123456
+  },
+  {
+    "name": "Lucy Slack",
+    "email": "lucy@gmail.com",
+    "role": "manager",
+    "password": 123456
+  },
+  {
+    "name": "Bert Lloyd",
+    "email": "bert@gmail.com",
+    "role": "manager",
+    "password": "123456"
+  },
+  {
+    "name": "Touka Lloyd",
+    "email": "touka@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "name": "Kaneki Lloyd",
+    "email": "kaneki@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "name": "Boomer Slack",
+    "email": "boomer@gmail.com",
+    "role": "user",
+    "password": "123456"
+  },
+  {
+    "name": "Maggie Slack",
+    "email": "maggie@gmail.com",
+    "role": "user",
+    "password": "123456"
+  }
+]
