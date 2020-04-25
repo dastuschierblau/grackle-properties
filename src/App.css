@@ -95,6 +95,10 @@ ul {
   text-align: center;
 }
 
+.text-purple {
+  color: var(--bg-purple);
+}
+
 .d-flex {
   display: flex;
   justify-content: center;
@@ -142,12 +146,17 @@ form {
 
 .btn {
   border: none;
-  background-color: #111111;
+  background-color: var(--bg-purple);
   color: var(--text-white);
   margin: 1rem 0;
-  padding: 1rem 0.5rem;
-  width: 30%;
+  padding: 0.5rem 0.5rem;
+  width: 50%;
   border-radius: 10px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: #222;
 }
 
 .unit-list {

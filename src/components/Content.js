@@ -26,7 +26,7 @@ export default function Content({ params }) {
 
   return (
     <div>
-      <SortBar setUnits={setUnits} units={units} />
+      <SortBar params={params} setUnits={setUnits} units={units} />
 
       <ul className='unit-list'>
         {units.map((item) => {
@@ -34,6 +34,7 @@ export default function Content({ params }) {
             <li key={item.id}>
               <UnitPreview
                 property={item.property}
+                squareFt={item.squareFt}
                 description={item.description}
                 price={item.price}
                 bedrooms={item.bedrooms}
@@ -56,17 +57,27 @@ function UnitPreview(props) {
   return (
     <div className='unit-item'>
       <img src={require(`../img/interior${props.property}.jpg`)} />
-      <p>{property.name}</p>
-      <p>{props.description}</p>
+      <h4 className='text-purple'>{property.name}</h4>
+      <p>{props.squareFt} Square Feet</p>
       <p>Price: ${props.price}</p>
       <p>Beds: {props.bedrooms}</p>
       <p>Baths: {props.bathrooms}</p>
       <p>Available: {props.availableDate}</p>
+      <span className='d-flex'>
+        <button className='btn'>See Details</button>
+      </span>
     </div>
   );
 }
 
-function SortBar({ units, setUnits }) {
+function SortBar({ units, setUnits, params }) {
+  const [filter, setFilter] = React.useState({
+    aspect: '',
+    direction: '',
+  });
+
+  let selectRef = React.useRef(null);
+
   const sortUnits = (aspect, direction) => {
     let sortedArray = [...units];
 
@@ -98,25 +109,72 @@ function SortBar({ units, setUnits }) {
         });
 
       sortedArray = currentlyAvailable.concat(sortedAvailable);
+    } else if (aspect === 'size') {
+      sortedArray.sort((a, b) => {
+        if (direction === 'desc') {
+          return b.squareFt - a.squareFt;
+        } else if (direction === 'inc') {
+          return a.squareFt - b.squareFt;
+        }
+      });
     }
 
     setUnits(sortedArray);
   };
 
+  React.useEffect(() => {
+    selectRef.current.value = 'default';
+    setFilter({
+      aspect: '',
+      direction: '',
+    });
+  }, [params]);
+
+  React.useEffect(() => {
+    sortUnits(filter.aspect, filter.direction);
+  }, [filter.aspect, filter.direction]);
+
+  const changeFilter = (value) => {
+    if (value === 'l>hprice') {
+      setFilter({
+        aspect: 'price',
+        direction: 'inc',
+      });
+    } else if (value === 'h>lprice') {
+      setFilter({
+        aspect: 'price',
+        direction: 'desc',
+      });
+    } else if (value === 'date') {
+      setFilter({
+        aspect: 'date',
+        direction: '',
+      });
+    } else if (value === 'l>hsize') {
+      setFilter({
+        aspect: 'size',
+        direction: 'inc',
+      });
+    } else if (value === 'h>lsize') {
+      setFilter({
+        aspect: 'size',
+        direction: 'desc',
+      });
+    }
+  };
+
   return (
     <div>
       <h3>Sort By:</h3>
-      <select>
-        <option default>Choose a sort filter</option>
-        <option value='l>hprice' onClick={() => sortUnits('price', 'inc')}>
-          Price: Low to High
+      <select onChange={(e) => changeFilter(e.target.value)} ref={selectRef}>
+        <option value='default' selected>
+          Choose a sort filter
         </option>
-        <option value='h>lprice' onClick={() => sortUnits('price', 'desc')}>
-          Price: High to Low
-        </option>
-        <option value='date' onClick={() => sortUnits('date')}>
-          Date Available
-        </option>
+        <option value='l>hprice'>Price: Low to High</option>
+        <option value='h>lprice'>Price: High to Low</option>
+        <option value='date'>Date Available</option>
+        <option value='l>hsize'>Square Ft: Small > Large</option>
+        <option value='h>lsize'>Square Ft: Large > Small</option>
       </select>
     </div>
   );
