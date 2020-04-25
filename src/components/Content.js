@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { data } from '../data/apartments';
 import { properties } from '../data/properties';
+import { Link } from 'react-router-dom';
 
 export default function Content({ params }) {
   const { beds, baths, property } = params;
@@ -34,6 +35,7 @@ export default function Content({ params }) {
             <li key={item.id}>
               <UnitPreview
                 property={item.property}
+                id={item.id}
                 squareFt={item.squareFt}
                 description={item.description}
                 price={item.price}
@@ -54,6 +56,10 @@ function UnitPreview(props) {
     return item.id === props.property;
   });
 
+  function slugify(str) {
+    return str.split(' ').join('-');
+  }
+
   return (
     <div className='unit-item'>
       <img src={require(`../img/interior${props.property}.jpg`)} />
@@ -64,7 +70,12 @@ function UnitPreview(props) {
       <p>Baths: {props.bathrooms}</p>
       <p>Available: {props.availableDate}</p>
       <span className='d-flex'>
-        <button className='btn'>See Details</button>
+        <Link
+          className='btn d-flex'
+          to={`${slugify(property.name)}/${props.id}`}
+        >
+          See Details
+        </Link>
       </span>
     </div>
   );

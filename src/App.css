@@ -19,14 +19,30 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+a:visited {
+  text-decoration: none;
+  outline: none;
+}
+
 .container {
   width: 100%;
 }
 
 :root {
   --bg-purple: #582a72;
-  --pink-gradient: linear-gradient(to right, #9775aa, #882d61);
+  --pink-gradient: linear-gradient(to right, #9775aab7, #882d61b0);
   --purple-gradient: linear-gradient(to right, #582a72bb, #882d61bd);
+  --purple-gradient-dark: linear-gradient(
+    to right,
+    #582a72 60%,
+    rgb(136, 45, 97)
+  );
+  --tail-fade: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.6));
   --text-white: #fafafa;
   --raleway: 'Raleway', sans-serif;
 }
@@ -95,8 +111,25 @@ ul {
   text-align: center;
 }
 
+.text-white {
+  color: #fafafa;
+}
+
+.text-yellow {
+  color: #f0da62;
+}
+
 .text-purple {
   color: var(--bg-purple);
+}
+
+.raleway {
+  font-family: var(--raleway);
+}
+
+.font-big {
+  font-size: 2rem;
+  letter-spacing: 0.3rem;
 }
 
 .d-flex {
@@ -104,12 +137,67 @@ ul {
   justify-content: center;
 }
 
+.align-center {
+  align-items: center;
+}
+
+.relative {
+  position: relative;
+}
+
+.p-2 {
+  padding: 2rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}
+
+.mb-2 {
+  margin-bottom: 2rem;
+}
+
 .row {
   display: grid;
   grid-template-columns: 35% 65%;
 }
+
+.bis-row {
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.bis-row:nth-child(2) {
+  padding-top: 2rem;
+}
+
+.bis-row:nth-child(3) {
+  padding-bottom: 2rem;
+}
+
 .col {
   padding: 1rem 2rem;
+}
+
+.bis-row .col img {
+  width: 100%;
+}
+
+.bg-purple {
+  background-color: var(--bg-purple);
+  color: #fafafa;
+}
+
+.bg-gradient-purple {
+  background: var(--purple-gradient-dark);
+}
+
+.bg-dark {
+  background-color: rgb(52, 0, 82);
+}
+
+.bg-gray {
+  background-color: #ddd;
 }
 
 .menu {
@@ -159,6 +247,12 @@ form {
   background-color: #222;
 }
 
+.back-btn {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+}
+
 .unit-list {
   display: grid;
   grid-template-columns: 50% 50%;
@@ -175,8 +269,117 @@ form {
   width: 100%;
 }
 
+/* Landing page styles */
+.landing {
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-purple);
+  background: var(--purple-gradient),
+    url(./img/ryan-grewell-h3wVB-g8V5Y-unsplash.jpg) no-repeat top center/cover;
+}
+
+.landing h1 {
+  font-size: 4rem;
+}
+
+.link {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.fa-crow {
+  color: #ddd;
+}
+
+.fa-crow:hover {
+  transform: scale(1.5) rotate(15deg);
+
+  color: #222;
+  transition: 0.2s ease-in;
+}
+
+/* Individual Unit page styles */
+.banner {
+  width: 100vw;
+  height: 40rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+.banner-The-Mockingbird {
+  background: var(--pink-gradient),
+    url(./img/francesca-saraco-_dS27XGgRyQ-unsplash.jpg) no-repeat center/cover
+      fixed;
+}
+.banner-Quaker-Apartments {
+  background: var(--pink-gradient),
+    url(./img/steven-ungermann-msIWv99PiAM-unsplash.jpg) no-repeat center/cover
+      fixed;
+}
+.banner-Rock-Dove-Apartments {
+  background: var(--pink-gradient),
+    url(./img/brandon-griggs-wR11KBaB86U-unsplash.jpg) no-repeat center/cover
+      fixed;
+}
+.banner-The-Night-Heron {
+  background: var(--tail-fade), var(--pink-gradient),
+    url(./img/jan-jakub-nanista-UHyrjKPsshk-unsplash.jpg) no-repeat center/cover
+      fixed;
+}
+
+.banner-bottom-The-Mockingbird {
+  background: var(--purple-gradient),
+    url(./img/brian-mcgowan-ZAA73cj0Iso-unsplash.jpg) no-repeat center/cover
+      fixed;
+}
+.banner-bottom-The-Night-Heron {
+  background: var(--purple-gradient),
+    url(./img/dulcey-lima-wUz-6iB-XmA-unsplash.jpg) no-repeat center/cover fixed;
+}
+.banner-bottom-Rock-Dove-Apartments {
+  background: var(--purple-gradient),
+    url(./img/kalpesh-patel-HXnBdQ_pWm0-unsplash\(1\).jpg) no-repeat
+      center/cover fixed;
+}
+.banner-bottom-Quaker-Apartments {
+  background: var(--purple-gradient),
+    url(./img/sebastian-herrmann-N59J_O_JLdQ-unsplash.jpg) no-repeat
+      center/cover fixed;
+}
+
+.banner .bis-row {
+  width: 100%;
+}
+
+.banner img {
+  width: 100%;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: var(--text-white);
+  background-color: var(--bg-purple);
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  opacity: 0.75;
+  transition: 0.2s ease-in;
+}
+
+.show-false {
+  opacity: 0;
+}
+
 @media (max-width: 800px) {
   .row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bis-row {
     display: flex;
     flex-direction: column;
   }
@@ -202,5 +405,16 @@ form {
 @media (max-width: 600px) {
   .unit-list {
     grid-template-columns: 100%;
+  }
+
+  .splash {
+    padding-left: 2rem;
+  }
+
+  .sm-col {
+    flex-direction: column;
+  }
+  .fa-crow:hover {
+    transform: none;
   }
 }
