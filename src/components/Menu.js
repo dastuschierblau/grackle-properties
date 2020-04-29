@@ -3,6 +3,14 @@ import React from 'react';
 function Menu(props) {
   const { setBeds, setBaths, setProperty } = props.filter;
 
+  const [toggle, setToggle] = React.useState(false);
+
+  const toggleMenu = () => {
+    setToggle((prev) => {
+      return !prev;
+    });
+  };
+
   const changeBeds = (target) => {
     if (!target.checked) {
       setBeds((prev) => {
@@ -32,10 +40,18 @@ function Menu(props) {
   };
 
   return (
-    <div className='col menu'>
+    <div className='col menu relative'>
       <h2 className='text-center'>Grackle Properties</h2>
       <h4 className='text-center'>Search for a unit:</h4>
-      <form>
+      <div className='d-flex menu-button'>
+        <div onClick={() => toggleMenu()} className={`toggle-${toggle}`}>
+          <div className='bar1'></div>
+          <div className='bar2'></div>
+          <div className='bar3'></div>
+        </div>
+      </div>
+
+      <form className={`toggle-collapse open-${toggle}`}>
         <div className='form-category'>
           <label>Bedrooms:</label>
           <div className='form-group'>

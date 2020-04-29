@@ -1,4 +1,4 @@
-const React = require('react');
+import React from 'react';
 
 class Hover extends React.Component {
   constructor(props) {
@@ -29,4 +29,4 @@ class Hover extends React.Component {
   }
 }
 
-module.exports = Hover;
+export default Hover;

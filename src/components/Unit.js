@@ -52,7 +52,10 @@ export default function Unit({ match }) {
             {(hovering) => {
               return (
                 <div className='relative'>
-                  <img src={require('../img/interior1.jpg')} />
+                  <img
+                    src={require('../img/interior1.jpg')}
+                    alt='Apartment interior'
+                  />
                   <div className={`overlay show-${hovering}`}>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -69,7 +72,10 @@ export default function Unit({ match }) {
             {(hovering) => {
               return (
                 <div className='relative'>
-                  <img src={require('../img/interior2.jpg')} />
+                  <img
+                    src={require('../img/interior2.jpg')}
+                    alt='Apartment interior'
+                  />
                   <div className={`overlay show-${hovering}`}>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -88,7 +94,10 @@ export default function Unit({ match }) {
             {(hovering) => {
               return (
                 <div className='relative'>
-                  <img src={require('../img/interior3.jpg')} />
+                  <img
+                    src={require('../img/interior3.jpg')}
+                    alt='Apartment interior'
+                  />
                   <div className={`overlay show-${hovering}`}>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -105,7 +114,10 @@ export default function Unit({ match }) {
             {(hovering) => {
               return (
                 <div className='relative'>
-                  <img src={require('../img/interior4.jpg')} />
+                  <img
+                    src={require('../img/interior4.jpg')}
+                    alt='Apartment interior'
+                  />
                   <div className={`overlay show-${hovering}`}>
                     <p>
                       Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -119,7 +131,7 @@ export default function Unit({ match }) {
         </div>
       </div>
 
-      <div className={`banner banner-bottom-${propertyId}`}></div>
+      <div className={`banner banner-bottom banner-bottom-${propertyId}`}></div>
 
       <div className='bg-dark text-white'>
         <div className='bis-row'>

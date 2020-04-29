@@ -62,7 +62,10 @@ function UnitPreview(props) {
 
   return (
     <div className='unit-item'>
-      <img src={require(`../img/interior${props.property}.jpg`)} />
+      <img
+        src={require(`../img/interior${props.property}.jpg`)}
+        alt='Apartment Interior'
+      />
       <h4 className='text-purple'>{property.name}</h4>
       <p>{props.squareFt} Square Feet</p>
       <p>Price: ${props.price}</p>
