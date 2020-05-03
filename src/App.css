@@ -257,6 +257,16 @@ form {
   border-radius: 10px;
 }
 
+.btn:disabled {
+  background-color: #777;
+}
+
+.btn:disabled:hover {
+  cursor: not-allowed;
+  background-color: #777;
+  color: #222;
+}
+
 .btn-yellow {
   background-color: var(--bg-yellow);
   color: #222;
@@ -465,10 +475,6 @@ form {
 
   .open-true {
     display: flex;
-  }
-
-  .btn-yellow {
-    width: 60%;
   }
 }
 

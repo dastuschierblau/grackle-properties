@@ -49,10 +49,18 @@ function Menu(props) {
     setUnits((prev) => {
       return data
         .filter((item) => {
-          return baths.includes(item.bathrooms.toString());
+          if (baths.length > 0) {
+            return baths.includes(item.bathrooms.toString());
+          } else {
+            return true;
+          }
         })
         .filter((item) => {
-          return beds.includes(item.bedrooms.toString());
+          if (beds.length > 0) {
+            return beds.includes(item.bedrooms.toString());
+          } else {
+            return true;
+          }
         })
         .filter((item) => {
           if (property === 'All') return true;
