@@ -1,7 +1,13 @@
 import React from 'react';
+import { data } from '../data/apartments';
 
 function Menu(props) {
-  const { setBeds, setBaths, setProperty } = props.filter;
+  const { units, setUnits } = props.filter;
+  const { setLoading } = props.loading;
+
+  const [beds, setBeds] = React.useState([]);
+  const [baths, setBaths] = React.useState([]);
+  const [property, setProperty] = React.useState('All');
 
   const [toggle, setToggle] = React.useState(false);
 
@@ -35,14 +41,39 @@ function Menu(props) {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setLoading(true);
+
+    setUnits((prev) => {
+      return data
+        .filter((item) => {
+          return baths.includes(item.bathrooms.toString());
+        })
+        .filter((item) => {
+          return beds.includes(item.bedrooms.toString());
+        })
+        .filter((item) => {
+          if (property === 'All') return true;
+          return item.property.toString() === property;
+        });
+    });
+  };
+
   const changeProperty = (target) => {
     setProperty(target.value);
   };
+
+  React.useEffect(() => {
+    setToggle(false);
+  }, [units]);
 
   return (
     <div className='col menu relative'>
       <h2 className='text-center'>Grackle Properties</h2>
       <h4 className='text-center'>Search for a unit:</h4>
+
       <div className='d-flex menu-button'>
         <div onClick={() => toggleMenu()} className={`toggle-${toggle}`}>
           <div className='bar1'></div>
@@ -129,6 +160,16 @@ function Menu(props) {
             </select>
           </div>
         </div>
+
+        <button
+          className='btn btn-yellow d-flex'
+          disabled={
+            beds.length === 0 && baths.length === 0 && property === 'All'
+          }
+          onClick={(e) => handleSubmit(e)}
+        >
+          Search
+        </button>
       </form>
     </div>
   );

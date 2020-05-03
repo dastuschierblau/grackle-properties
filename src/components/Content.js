@@ -4,49 +4,40 @@ import { properties } from '../data/properties';
 import { Link } from 'react-router-dom';
 
 export default function Content({ params }) {
-  const { beds, baths, property } = params;
-  const [units, setUnits] = React.useState([]);
+  const { units, setUnits, loading, setLoading } = params;
 
   React.useEffect(() => {
-    let items = data
-      .filter((item) => {
-        if (beds.length === 0) return true;
-        return beds.includes(item.bedrooms.toString());
-      })
-      .filter((item) => {
-        if (baths.length === 0) return true;
-        return baths.includes(item.bathrooms.toString());
-      })
-      .filter((item) => {
-        if (property === 'All') return true;
-        return item.property === property;
-      });
-
-    setUnits(items);
-  }, [beds, baths, property]);
+    setTimeout(() => {
+      setLoading(false);
+    }, 1300);
+  }, [loading]);
 
   return (
     <div>
       <SortBar params={params} setUnits={setUnits} units={units} />
 
-      <ul className='unit-list'>
-        {units.map((item) => {
-          return (
-            <li key={item.id}>
-              <UnitPreview
-                property={item.property}
-                id={item.id}
-                squareFt={item.squareFt}
-                description={item.description}
-                price={item.price}
-                bedrooms={item.bedrooms}
-                bathrooms={item.bathrooms}
-                availableDate={item.availableDate}
-              />
-            </li>
-          );
-        })}
-      </ul>
+      {loading && <p>Loading...</p>}
+
+      {!loading && (
+        <ul className='unit-list'>
+          {units.map((item) => {
+            return (
+              <li key={item.id}>
+                <UnitPreview
+                  property={item.property}
+                  id={item.id}
+                  squareFt={item.squareFt}
+                  description={item.description}
+                  price={item.price}
+                  bedrooms={item.bedrooms}
+                  bathrooms={item.bathrooms}
+                  availableDate={item.availableDate}
+                />
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 }

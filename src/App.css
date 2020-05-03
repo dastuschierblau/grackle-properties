@@ -29,12 +29,20 @@ a:visited {
   outline: none;
 }
 
+button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: inherit;
+}
+
 .container {
   width: 100%;
 }
 
 :root {
   --bg-purple: #582a72;
+  --bg-yellow: #b9ad05;
   --pink-gradient: linear-gradient(to right, #9775aab7, #882d61b0);
   --purple-gradient: linear-gradient(to right, #582a72bb, #882d61bd);
   --purple-gradient-light: linear-gradient(to right, #582a7286, #882d6185);
@@ -189,6 +197,11 @@ a:visited {
   color: #fafafa;
 }
 
+.bg-yellow {
+  background-color: var(--bg-yellow);
+  color: #222;
+}
+
 .bg-gradient-purple {
   background: var(--purple-gradient-dark);
 }
@@ -226,6 +239,7 @@ form {
 .form-category {
   display: flex;
   align-items: center;
+  justify-content: center;
   padding: 0.5rem 1rem;
 }
 
@@ -239,13 +253,21 @@ form {
   color: var(--text-white);
   margin: 1rem 0;
   padding: 0.5rem 0.5rem;
-  width: 50%;
+  width: 90%;
   border-radius: 10px;
+}
+
+.btn-yellow {
+  background-color: var(--bg-yellow);
+  color: #222;
+  margin: 1rem auto;
+  width: 60%;
 }
 
 .btn:hover {
   cursor: pointer;
   background-color: #222;
+  color: #fafafa;
 }
 
 .back-btn {
@@ -420,6 +442,11 @@ form {
     transition: 0.4s;
   }
 
+  .toggle-true,
+  .toggle-false:hover {
+    cursor: pointer;
+  }
+
   .toggle-true .bar1 {
     transform: rotate(-45deg) translate(-9px, 6px);
   }
@@ -439,6 +466,10 @@ form {
   .open-true {
     display: flex;
   }
+
+  .btn-yellow {
+    width: 60%;
+  }
 }
 
 @media (max-width: 600px) {
@@ -457,10 +488,49 @@ form {
     transform: none;
   }
 
-  .banner-The-Mockingbird,
-  .banner-Quaker-Apartments,
-  .banner-Rock-Dove-Apartments,
+  .banner-The-Mockingbird {
+    background: var(--tail-fade), var(--pink-gradient),
+      url(./img/francesca-saraco-_dS27XGgRyQ-unsplash.jpg) no-repeat center
+        center/cover;
+  }
+  .banner-Quaker-Apartments {
+    background: var(--tail-fade), var(--pink-gradient),
+      url(./img/steven-ungermann-msIWv99PiAM-unsplash.jpg) no-repeat center
+        center/cover;
+  }
+  .banner-Rock-Dove-Apartments {
+    background: var(--tail-fade), var(--pink-gradient),
+      url(./img/brandon-griggs-wR11KBaB86U-unsplash.jpg) no-repeat center
+        center/cover;
+  }
   .banner-The-Night-Heron {
-    background-position: relative;
+    background: var(--tail-fade), var(--pink-gradient),
+      url(./img/jan-jakub-nanista-UHyrjKPsshk-unsplash.jpg) no-repeat center
+        center/cover;
+  }
+
+  .banner-bottom-The-Mockingbird {
+    background: var(--purple-gradient-light),
+      url(./img/brian-mcgowan-ZAA73cj0Iso-unsplash.jpg) no-repeat center
+        center/cover;
+    height: 50vh;
+  }
+  .banner-bottom-The-Night-Heron {
+    background: var(--purple-gradient-light),
+      url(./img/dulcey-lima-wUz-6iB-XmA-unsplash.jpg) no-repeat center
+        center/cover;
+    height: 50vh;
+  }
+  .banner-bottom-Rock-Dove-Apartments {
+    background: var(--purple-gradient-light),
+      url(./img/kalpesh-patel-HXnBdQ_pWm0-unsplash.jpg) no-repeat center
+        center/cover;
+    height: 50vh;
+  }
+  .banner-bottom-Quaker-Apartments {
+    background: var(--purple-gradient-light),
+      url(./img/sebastian-herrmann-N59J_O_JLdQ-unsplash.jpg) no-repeat center
+        center/cover;
+    height: 50vh;
   }
 }
