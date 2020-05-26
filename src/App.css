@@ -146,6 +146,10 @@ button {
   justify-content: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
 .align-center {
   align-items: center;
 }
@@ -332,6 +336,42 @@ form {
   transition: 0.2s ease-in;
 }
 
+.corner-link {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+/* Credits Page styles */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2rem;
+
+  padding: 3rem;
+  margin: 0 auto;
+}
+
+.photo-grid-item {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 20px;
+}
+
+.photo-grid-item h4 {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  color: #fafafa;
+}
+
+.photo-grid-item img {
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+
 /* Menu button for mobile screens */
 @media (min-width: 800px) {
   .menu-button {
@@ -476,6 +516,10 @@ form {
   .open-true {
     display: flex;
   }
+
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 600px) {
@@ -485,6 +529,7 @@ form {
 
   .splash {
     padding-left: 2rem;
+    position: relative;
   }
 
   .sm-col {
@@ -538,5 +583,9 @@ form {
       url(./img/sebastian-herrmann-N59J_O_JLdQ-unsplash.jpg) no-repeat center
         center/cover;
     height: 50vh;
+  }
+
+  .photo-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 }

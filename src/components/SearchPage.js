@@ -6,10 +6,6 @@ import Menu from './Menu';
 import Content from './Content';
 
 function SearchPage() {
-  const [beds, setBeds] = React.useState([]);
-  const [baths, setBaths] = React.useState([]);
-  const [property, setProperty] = React.useState('All');
-
   const [units, setUnits] = React.useState(data);
   const [loading, setLoading] = React.useState(false);
 

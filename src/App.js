@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Landing from './components/Landing';
 import SearchPage from './components/SearchPage';
 import Unit from './components/Unit';
+import Credits from './components/Credits';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Landing} />
             <Route path='/search' component={SearchPage} />
+            <Route path='/credits' component={Credits} />
             <Route path='/:propertyId/:unitId' component={Unit} />
           </Switch>
         </div>
