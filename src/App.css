@@ -539,6 +539,29 @@ form {
     transform: none;
   }
 
+  .toggle-collapse {
+    height: 100vh;
+  }
+
+  .form-category {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .form-category > label {
+    padding-bottom: 1rem;
+  }
+
+  .form-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-inputs > * {
+    display: flex;
+    justify-content: center;
+  }
+
   .banner-The-Mockingbird {
     background: var(--tail-fade), var(--pink-gradient),
       url(./img/francesca-saraco-_dS27XGgRyQ-unsplash.jpg) no-repeat center

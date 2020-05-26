@@ -18,6 +18,10 @@ export default function Content({ params }) {
 
       {loading && <p>Loading...</p>}
 
+      {!loading && units.length === 0 && (
+        <h2>No Units Found. Please adjust your search criteria.</h2>
+      )}
+
       {!loading && (
         <ul className='unit-list'>
           {units.map((item) => {

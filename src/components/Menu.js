@@ -93,39 +93,52 @@ function Menu(props) {
       <form className={`toggle-collapse open-${toggle}`}>
         <div className='form-category'>
           <label>Bedrooms:</label>
-          <div className='form-group'>
-            <label className='checkbox-container'>
-              <input
-                type='checkbox'
-                value='1'
-                onClick={(e) => changeBeds(e.target)}
-              />
-              <span className='checkbox-custom'></span>
-            </label>
-            <div className='label'>1</div>
-          </div>
-          <div className='form-group'>
-            <label className='checkbox-container'>
-              <input
-                type='checkbox'
-                value='2'
-                onClick={(e) => changeBeds(e.target)}
-              />
-              <span className='checkbox-custom'></span>
-            </label>
-            <div className='label'>2</div>
-          </div>
-          <div className='form-group'>
-            <label className='checkbox-container'>
-              <input
-                type='checkbox'
-                value='3'
-                onClick={(e) => changeBeds(e.target)}
-              />
-              <span className='checkbox-custom'></span>
-            </label>
-            <div className='label'>3</div>
-          </div>
+          <span className='form-inputs'>
+            <div className='form-group'>
+              <label className='checkbox-container'>
+                <input
+                  type='checkbox'
+                  value='0'
+                  onClick={(e) => changeBeds(e.target)}
+                />
+                <span className='checkbox-custom'></span>
+              </label>
+              <div className='label'>Studio</div>
+            </div>
+            <div className='form-group'>
+              <label className='checkbox-container'>
+                <input
+                  type='checkbox'
+                  value='1'
+                  onClick={(e) => changeBeds(e.target)}
+                />
+                <span className='checkbox-custom'></span>
+              </label>
+              <div className='label'>1</div>
+            </div>
+            <div className='form-group'>
+              <label className='checkbox-container'>
+                <input
+                  type='checkbox'
+                  value='2'
+                  onClick={(e) => changeBeds(e.target)}
+                />
+                <span className='checkbox-custom'></span>
+              </label>
+              <div className='label'>2</div>
+            </div>
+            <div className='form-group'>
+              <label className='checkbox-container'>
+                <input
+                  type='checkbox'
+                  value='3'
+                  onClick={(e) => changeBeds(e.target)}
+                />
+                <span className='checkbox-custom'></span>
+              </label>
+              <div className='label'>3</div>
+            </div>
+          </span>
         </div>
 
         <div className='form-category'>
